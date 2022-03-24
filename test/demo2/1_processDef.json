@@ -1,0 +1,114 @@
+{
+  "name":"请假流程-new",
+  "userID":"zhonghui.lin",
+  "userName":"林仲辉",
+  "company":"Accenture",
+  "resource": {
+    "name": "发起人",
+    "type": "start",
+    "nodeId": "sid-startevent",
+    "childNode": {
+      "name": "审批人",
+      "prevId": "sid-startevent",
+      "nodeId": "1647924164247",
+      "type": "approver",
+      "properties": {
+        "actionerRules": [
+          {
+            "type": "target_label",
+            "labelNames": "directMgr",
+            "isEmpty": false,
+            "memberCount": 1,
+            "actType": "or"
+          }
+        ]
+      },
+      "childNode": {
+        "type": "route",
+        "prevId": "1647924164247",
+        "nodeId": "1647923952346",
+        "conditionNodes": [
+          {
+            "name": "条件1",
+            "type": "condition",
+            "prevId": "1647923952346",
+            "nodeId": "1647923952356",
+            "properties": {
+              "conditions": [
+                [
+                  {
+                    "pos": 1,
+                    "type": "dingtalk_actioner_range_condition",
+                    "paramKey": "days",
+                    "paramLabel": "请假天数",
+                    "key": "le",
+                    "label": "小于等于",
+                    "upperBoundEqual": "3"
+                  }
+                ]
+              ]
+            },
+            "childNode": null
+          },
+          {
+            "name": "条件2",
+            "type": "condition",
+            "prevId": "1647923952356",
+            "nodeId": "1647923952366",
+            "properties": {
+              "conditions": [
+                [
+                  {
+                    "pos": 1,
+                    "type": "dingtalk_actioner_range_condition",
+                    "paramKey": "days",
+                    "paramLabel": "请假天数",
+                    "key": "gt",
+                    "label": "大于",
+                    "lowerBound": "3"
+                  }
+                ]
+              ]
+            },
+            "childNode": {
+              "name": "审批人",
+              "prevId": "1647923952366",
+              "nodeId": "1647924147054",
+              "type": "approver",
+              "properties": {
+                "actionerRules": [
+                  {
+                    "type": "target_label",
+                    "labelNames": "deptMgr",
+                    "isEmpty": false,
+                    "memberCount": 1,
+                    "actType": "or"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "childNode": {
+          "name": "抄送人",
+          "prevId": "1647923952346",
+          "nodeId": "1647924247184",
+          "type": "notifier",
+          "properties": {
+            "actionerRules": [
+              {
+                "type": "target_label",
+                "labelNames": "HR",
+                "isEmpty": false,
+                "memberCount": 1,
+                "actType": "or"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+
+

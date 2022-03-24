@@ -1,0 +1,12 @@
+{
+  "name":"请假流程-new",
+  "procName": "请假流程-new",
+  "title": "请假-林仲辉",
+  "userID":"zhonghui.lin",
+  "userName":"林仲辉",
+  "company":"Accenture",
+  "department": "技术中心",
+  "var": {
+    "days": "5"
+  }
+}

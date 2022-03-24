@@ -1,0 +1,13 @@
+{
+  "name":"请假流程",
+  "userID":"zhonghui.lin",
+  "userName":"林仲辉",
+  "company":"Accenture",
+  "procName": "请假流程",
+  "title": "请假-林仲辉",
+  "department": "技术中心",
+  "var": {
+    "DDHolidayField-J2BWEN12__duration": "8",
+    "DDHolidayField-J2BWEN12__options": "年假"
+  }
+}
